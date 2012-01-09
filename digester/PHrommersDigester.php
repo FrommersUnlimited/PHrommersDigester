@@ -323,11 +323,11 @@ class PHrommersDigester implements PHrommersDigesterIF {
       $xml = simplexml_load_file($url);
 
       $data = array(
-		'id'        => (int) $xml['id'],
-		'type'      => (int) $xml['type'],
-		'name'      => (int) $xml['name'],	
-		'latitude'  => (float) $xml['latitude'],	
-		'longitude' => (float) $xml['longitude'],	
+        'id'        => (int) $xml['id'],
+        'type'      => (int) $xml['type'],
+        'name'      => (int) $xml['name'],	
+        'latitude'  => (float) $xml['latitude'],	
+        'longitude' => (float) $xml['longitude'],	
       );
 
       // need to add some processing for parent hierarchy pish
