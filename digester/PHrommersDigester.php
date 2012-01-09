@@ -5,10 +5,10 @@ require_once('config.php');
 require_once('PHrommersDigesterIF.php');
 
 /**
- * Frommers Pheeds FeedServiceIf implementation class that is used to
- * parse the various Frommers Unlimited XML feeds
- * into a series of dictionaries then return the
- * relevant arrays
+ * 
+ * Frommers XML Digester implementation class that used to
+ * parse the various Frommers Unlimited XML feeds into a series of dictionaries 
+ * for use by client programs
  */
 class PHrommersDigester implements PHrommersDigesterIF {
 
@@ -154,7 +154,7 @@ class PHrommersDigester implements PHrommersDigesterIF {
         $data[$key] = $f['value'];
       }
     }
-    	
+     
     return $data;
   }
 
@@ -189,7 +189,7 @@ class PHrommersDigester implements PHrommersDigesterIF {
         }
       }
     }
-    	
+     
     return $data;
   }
 
@@ -364,19 +364,19 @@ class PHrommersDigester implements PHrommersDigesterIF {
 
         if ($code == 'guide_structure') {
           $guide['links'][] = array(
-			'name'  => (string) $link['name'],
-			'type'  => (string) $link['url'],
-			'query' => (string) $link['feedQuery'],
-			'id'    => str_replace('guideStructureId=', '', (string) $link['feedQuery']),
+            'name'  => (string) $link['name'],
+            'type'  => (string) $link['url'],
+            'query' => (string) $link['feedQuery'],
+            'id'    => str_replace('guideStructureId=', '', (string) $link['feedQuery']),
           );
           // any children (note: we assume all children are guide_structure types
           if ($link->children->destinationLink) {
             foreach ($link->children->destinationLink as $child_link) {
               $guide['links'][] = array(
-				'name'  => (string) $child_link['name'],
-				'type'  => (string) $child_link['url'],
-				'query' => (string) $child_link['feedQuery'],
-				'id'    => str_replace('guideStructureId=', '', (string) $child_link['feedQuery']),
+                'name'  => (string) $child_link['name'],
+                'type'  => (string) $child_link['url'],
+                'query' => (string) $child_link['feedQuery'],
+                'id'    => str_replace('guideStructureId=', '', (string) $child_link['feedQuery']),
               );
             }
           }
@@ -384,7 +384,7 @@ class PHrommersDigester implements PHrommersDigesterIF {
       }
     } catch (exception $e) {
       $guide = array(
-		'error' => $e->getMessage()
+				'error' => $e->getMessage()
       );
     }
 
