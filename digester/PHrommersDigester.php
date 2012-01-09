@@ -250,7 +250,7 @@ class PHrommersDigester implements PHrommersDigesterIF {
       $data['results'] = $results;
     } catch (Exception $e) {
       $data = array(
-		'error' => $e->getMessage()
+        'error' => $e->getMessage()
       );
     }
 
@@ -301,7 +301,7 @@ class PHrommersDigester implements PHrommersDigesterIF {
       $data['results'] = $results;
     } catch (Exception $e) {
       $data = array(
-		'error' => $e->getMessage()
+        'error' => $e->getMessage()
       );
     }
 
@@ -334,7 +334,7 @@ class PHrommersDigester implements PHrommersDigesterIF {
 
     } catch (exception $e) {
       $data = array(
-		'error' => $e->getMessage()
+        'error' => $e->getMessage()
       );
     }
 
@@ -384,10 +384,9 @@ class PHrommersDigester implements PHrommersDigesterIF {
       }
     } catch (exception $e) {
       $guide = array(
-				'error' => $e->getMessage()
+        'error' => $e->getMessage()
       );
     }
-
     return $guide;
   }
 }
