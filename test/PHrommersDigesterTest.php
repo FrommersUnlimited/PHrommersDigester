@@ -1,29 +1,27 @@
 <?php
 require_once('simpletest/autorun.php');
-require_once('FrommersPheeds/PHrommersDigester.php');
+require_once('digester/PHrommersDigester.php');
 
-use FrommersPheeds\PHrommersDigester as Digester;
+use digester\PHrommersDigester as Digester;
 /**
  * 
  * Test our Feed Slurpin' PHrommersDigester
+ * 
  * @author oaklandez
  *
  */
 class PHrommersDigesterTest extends UnitTestCase {
 	
 	protected $slurper; 
-	protected $domain = 'wowtranslations.frommers.biz';
 	
 	function TestOdfFeedSlurping() {
-		$this->slurper = new Digester($this->domain);
+		$this->slurper = new Digester();
 	}
 	
-	// Check we can set the correct donmain for our feeds
-	function testCorrectDomain() {
-		// Make sure we have the correct domain
-		$this->assertEqual($this->domain, $this->slurper->get_domain());
+	function testDomain() {
+		$this->assertEqual($this->slurper->get_domain(), 'demosite.frommers.biz');
 	}
-
+	
 	// Get IOI basic Item with default attributess	
 	function testGetBasicItem() {
 		
