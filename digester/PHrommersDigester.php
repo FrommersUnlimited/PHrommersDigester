@@ -363,21 +363,11 @@ class PHrommersDigester implements PHrommersDigesterIF {
         $code = (string) $link['feedCode'];
 
         if ($code == 'guide_structure') {
-          $guide['links'][] = array(
-            'name'  => (string) $link['name'],
-            'type'  => (string) $link['url'],
-            'query' => (string) $link['feedQuery'],
-            'id'    => str_replace('guideStructureId=', '', (string) $link['feedQuery']),
-          );
+          $guide['links'][] = $this->parse_link($link);
           // any children (note: we assume all children are guide_structure types
           if ($link->children->destinationLink) {
             foreach ($link->children->destinationLink as $child_link) {
-              $guide['links'][] = array(
-                'name'  => (string) $child_link['name'],
-                'type'  => (string) $child_link['url'],
-                'query' => (string) $child_link['feedQuery'],
-                'id'    => str_replace('guideStructureId=', '', (string) $child_link['feedQuery']),
-              );
+              $guide['links'][] = $this->parse_link($child_link);
             }
           }
         }
@@ -388,5 +378,14 @@ class PHrommersDigester implements PHrommersDigesterIF {
       );
     }
     return $guide;
+  }
+  
+  private function parse_link($link) {
+    return array(
+    	'name'  => (string) $link['name'],
+			'type'  => (string) $link['url'],
+			'query' => (string) $link['feedQuery'],
+			'id'    => str_replace('guideStructureId=', '', (string) $link['feedQuery']),
+    );
   }
 }
