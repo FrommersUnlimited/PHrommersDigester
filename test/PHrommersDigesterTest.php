@@ -1,5 +1,5 @@
 <?php
-require_once('/home/oaklandez/PHP/simpletest/autorun.php');
+require_once('simpletest/autorun.php');
 require_once('FrommersPheeds/PHrommersDigester.php');
 
 use FrommersPheeds\PHrommersDigester as Digester;
