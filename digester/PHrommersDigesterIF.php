@@ -5,8 +5,8 @@ namespace digester;
  * 
  * Frommers XML feed Digester interface. 
  * Describes all the public methods that must be implemented by any Frommers
- * ODF XML feeds munger. Responsible for connecting, parsing XML and retuning 
- * decent dictionaries for use in ant PHP system
+ * ODF XML feed munger. Responsible for connecting, parsing the remote XML and 
+ * returning usable dictionaries
  */
 interface PHrommersDigesterIF {
 
@@ -44,6 +44,7 @@ interface PHrommersDigesterIF {
 	 * @param The attraction IOI id $id
 	 */
 	public function get_attraction($id);
+	
 	/**
 	 * 
 	 * Retrieves a Nightlife POI by its oDF id
@@ -98,14 +99,12 @@ interface PHrommersDigesterIF {
 	public function get_location($id);
 
 	/**
-	*
-	* Load the destination_menu.feed when supplied with the locationID and retunn a 'guide'
-	*
-	* @param int $id The location id of the feed to parse
-	* @return data the 'view-friendly' dictionary of the destination_menu items
+	 *
+	 * Load the destination_menu.feed (ie guide) when supplied with the locationID
+	 *
+	 * @param int $id The location id of the feed to parse
+	 * @return data the 'view-friendly' dictionary of the destination_menu items
 	*/
 	public function get_guide($id);
 	
-	
 }
-?>

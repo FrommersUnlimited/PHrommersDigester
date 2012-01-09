@@ -391,4 +391,3 @@ class PHrommersDigester implements PHrommersDigesterIF {
 		return $guide;
 	}
 }
-?>
