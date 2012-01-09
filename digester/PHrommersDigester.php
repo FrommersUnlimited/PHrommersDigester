@@ -383,9 +383,9 @@ class PHrommersDigester implements PHrommersDigesterIF {
   private function parse_link($link) {
     return array(
     	'name'  => (string) $link['name'],
-			'type'  => (string) $link['url'],
-			'query' => (string) $link['feedQuery'],
-			'id'    => str_replace('guideStructureId=', '', (string) $link['feedQuery']),
+      'type'  => (string) $link['url'],
+      'query' => (string) $link['feedQuery'],
+      'id'    => str_replace('guideStructureId=', '', (string) $link['feedQuery']),
     );
   }
 }
