@@ -58,8 +58,8 @@ class PHrommersDigester implements PHrommersDigesterIF {
     );
 
     return array(
-			'data' => $data,
-			'xml'  => $xml,
+      'data' => $data,
+      'xml'  => $xml,
     );
   }
 
@@ -235,16 +235,16 @@ class PHrommersDigester implements PHrommersDigesterIF {
       $results = array();
       foreach ($xml->poiResult as $row) {
         $results[] = array(
-    		'id'        => $row['id'],
-    		'name'      => $row['name'],
-    	    'type'      => $row['typeName'],
-    		'sub_type'  => $row['subTypeName'],
-    		'city'      => $row['city'],
-    		'country'   => $row['country'],
-    		'longitude' => $row['longitude'],
-    		'latitude'  => $row['latitude'],
-    		'rank'      => $row['rankId'],
-    		'summary'   => $row['summary'],				
+          'id'        => $row['id'],
+          'name'      => $row['name'],
+          'type'      => $row['typeName'],
+          'sub_type'  => $row['subTypeName'],
+          'city'      => $row['city'],
+          'country'   => $row['country'],
+          'longitude' => $row['longitude'],
+          'latitude'  => $row['latitude'],
+          'rank'      => $row['rankId'],
+          'summary'   => $row['summary'],				
         );
       }
       $data['results'] = $results;
@@ -284,7 +284,7 @@ class PHrommersDigester implements PHrommersDigesterIF {
           'name'           => $row['name'],
           'city'           => $row['city'],
           'date'           => $row['displayDate'],
-          'location'       => $row['displaYLocation'],
+          'location'       => $row['displayLocation'],
           'sub_type'       => $row['subTypeName'],
           'summary'        => $row['summary'],				
           'country'        => $row['country'],
