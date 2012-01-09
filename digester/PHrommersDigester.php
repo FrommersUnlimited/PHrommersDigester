@@ -5,9 +5,9 @@ require_once('config.php');
 require_once('PHrommersDigesterIF.php');
 
 /**
- * 
+ *
  * Frommers XML Digester implementation class that used to
- * parse the various Frommers Unlimited XML feeds into a series of dictionaries 
+ * parse the various Frommers Unlimited XML feeds into a series of dictionaries
  * for use by client programs
  */
 class PHrommersDigester implements PHrommersDigesterIF {
@@ -154,7 +154,7 @@ class PHrommersDigester implements PHrommersDigesterIF {
         $data[$key] = $f['value'];
       }
     }
-     
+
     return $data;
   }
 
@@ -189,7 +189,7 @@ class PHrommersDigester implements PHrommersDigesterIF {
         }
       }
     }
-     
+
     return $data;
   }
 
@@ -244,7 +244,7 @@ class PHrommersDigester implements PHrommersDigesterIF {
           'longitude' => $row['longitude'],
           'latitude'  => $row['latitude'],
           'rank'      => $row['rankId'],
-          'summary'   => $row['summary'],				
+          'summary'   => $row['summary'],
         );
       }
       $data['results'] = $results;
@@ -286,16 +286,16 @@ class PHrommersDigester implements PHrommersDigesterIF {
           'date'           => $row['displayDate'],
           'location'       => $row['displayLocation'],
           'sub_type'       => $row['subTypeName'],
-          'summary'        => $row['summary'],				
+          'summary'        => $row['summary'],
           'country'        => $row['country'],
           'longitude'      => $row['longitude'],
           'latitude'       => $row['latitude'],
           'rank'           => $row['rankId'],
           'summary'        => $row['summary'],
-          'image_id'       => $row->image['mediaId'],		
-          'image_url'      => $row->image ? $this->media_path . $row->image['mediaUrl'] : null,		
-          'image_credit'   => $row->image['credit'],		
-          'image_caption'  => $row->image['credit'],		
+          'image_id'       => $row->image['mediaId'],
+          'image_url'      => $row->image ? $this->media_path . $row->image['mediaUrl'] : null,
+          'image_credit'   => $row->image['credit'],
+          'image_caption'  => $row->image['credit'],
         );
       }
       $data['results'] = $results;
@@ -325,9 +325,9 @@ class PHrommersDigester implements PHrommersDigesterIF {
       $data = array(
         'id'        => (int) $xml['id'],
         'type'      => (int) $xml['type'],
-        'name'      => (int) $xml['name'],	
-        'latitude'  => (float) $xml['latitude'],	
-        'longitude' => (float) $xml['longitude'],	
+        'name'      => (int) $xml['name'],
+        'latitude'  => (float) $xml['latitude'],
+        'longitude' => (float) $xml['longitude'],
       );
 
       // need to add some processing for parent hierarchy pish
@@ -379,10 +379,10 @@ class PHrommersDigester implements PHrommersDigesterIF {
     }
     return $guide;
   }
-  
+
   private function parse_link($link) {
     return array(
-    	'name'  => (string) $link['name'],
+      'name'  => (string) $link['name'],
       'type'  => (string) $link['url'],
       'query' => (string) $link['feedQuery'],
       'id'    => str_replace('guideStructureId=', '', (string) $link['feedQuery']),
